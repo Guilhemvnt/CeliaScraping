@@ -14,6 +14,22 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from tqdm import tqdm
 
+import requests
+
+url = 'http://10.44.109.64:8000/upload/'
+
+def sendData():
+    with open(file_path, 'rb') as f:
+        # Create a dictionary to hold the file data
+        files = {'files': f}
+        
+        # Send the POST request
+        response = requests.post(url, files=files)
+        
+        # Print the response from the server
+        print(response.status_code)
+        print(response.text)
+
 load_dotenv()
 
 tokens_str = dotenv_values(".env")["TOKENS"]
@@ -63,7 +79,7 @@ plus_prompt = lambda a : f"Generate some more for the following types of diagram
 
 prompts += [plus_prompt(diagram_types[(i * 5) : (i * 5) + (min(5, len(diagram_types) - (i * 5)))]) for i in range(len(diagram_types) // 5 + 1 if len(diagram_types) % 5 else len(diagram_types) // 5)]
 
-prompts += modification_prompt
+#prompts += modification_prompt
 
 # prompts += [plus_prompt(diagram_types[(i * 5) : (i * 5) + (min(5, len(diagram_types) - (i * 5)))]) for i in range(len(diagram_types) // 5 + 1 if len(diagram_types) % 5 else len(diagram_types) // 5)]
 
@@ -110,6 +126,7 @@ def merge_file(path_src, path_dest):
     
     with open(path_dest, 'w') as merged_file:
         json.dump(merged_data, merged_file, indent=4)
+        sendData()
 
 def handler(signum, frame):
     exit(1)
