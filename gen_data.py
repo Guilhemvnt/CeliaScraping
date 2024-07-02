@@ -16,19 +16,8 @@ from tqdm import tqdm
 
 import requests
 
-url = 'http://10.44.109.64:8000/upload/'
-
-def sendData():
-    with open(file_path, 'rb') as f:
-        # Create a dictionary to hold the file data
-        files = {'files': f}
-        
-        # Send the POST request
-        response = requests.post(url, files=files)
-        
-        # Print the response from the server
-        print(response.status_code)
-        print(response.text)
+url = 'http://10.44.109.64:8000/upload'
+file_path = 'new_dataset.json'
 
 load_dotenv()
 
@@ -87,6 +76,18 @@ prompts += [plus_prompt(diagram_types[(i * 5) : (i * 5) + (min(5, len(diagram_ty
 
 # print(*prompts, sep="\n")
 # exit()
+
+def sendData():
+    with open(file_path, 'rb') as f:
+        # Create a dictionary to hold the file data
+        files = {'files': f}
+        
+        # Send the POST request
+        response = requests.post(url, files=files)
+        
+        # Print the response from the server
+        print(response.status_code)
+        print(response.text)
 
 def execute_shell_script(script_path):
     try:

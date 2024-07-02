@@ -1,6 +1,7 @@
-curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash - sudo apt install -y nodejs
-
 sudo apt-get update
+sudo apt-get install curl
+curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash - sudo apt install -y nodejs
+nvm install 20
 
 echo "install github"
 sudo apt install git-all
@@ -10,6 +11,12 @@ sudo npm install -g @mermaid-js/mermaid-cli
 
 echo "installing python3"
 sudo apt-get install python3
+
+echo "installing python3-venv"
+sudo apt-get install python3-venv
+
+echo "installing chromium"
+sudo apt-get 
 
 echo "installing pip3"
 sudo apt-get install python3-pip
@@ -21,10 +28,10 @@ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 78BD65473CB3BD13
 sudo apt-get update
 sudo apt-get install google-chrome-stable
 
-touch ../.env
+touch .env
 
 echo "Step 1: Creating a virtual environment named 'venv'..."
-python3 -m venv ../venv
+python3 -m venv venv
 
 echo "Step 2: Activating the virtual environment..."
 source venv/bin/activate
