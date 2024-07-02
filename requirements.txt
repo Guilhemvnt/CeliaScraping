@@ -1,0 +1,5 @@
+undetected-chromedriver
+python-dotenv
+selenium
+tqdm
+setuptools
