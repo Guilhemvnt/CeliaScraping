@@ -1,3 +1,3 @@
-sudo apt-get install curl
+sudo apt install -y curl
 
-curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash - sudo apt install -y nodejs | bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
