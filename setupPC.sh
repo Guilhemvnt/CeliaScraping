@@ -1,13 +1,14 @@
 sudo apt-get update
-sudo apt-get install curl
-curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash - sudo apt install -y nodejs
+
 nvm install 20
 
-echo "install github"
+nvm install node
+
+echo "install git"
 sudo apt install git-all
 
 echo "install mermaid"
-sudo npm install -g @mermaid-js/mermaid-cli
+npm install -g @mermaid-js/mermaid-cli
 
 echo "installing python3"
 sudo apt-get install python3
