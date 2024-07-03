@@ -17,14 +17,12 @@ from tqdm import tqdm
 import requests
 
 url = 'http://10.44.109.64:8000/upload'
-file_path = 'new_dataset.json'
+file_path = ''
 
 load_dotenv()
 
 tokens_str = dotenv_values(".env")["TOKENS"]
 tokens = [token.strip() for token in tokens_str.split(',')]
-
-file_path = 'new_dataset.json'
 
 prompt_nb = 30
 seed = randint(0, 80000000)

@@ -52,4 +52,6 @@ pip list
 echo "Setup complete. The virtual environment 'venv' is ready to use."
 
 echo "Running gen_data.py"
+
+rm new_dataset.json
 python3 gen_data.py
